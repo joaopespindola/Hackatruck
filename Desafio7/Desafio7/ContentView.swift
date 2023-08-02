@@ -32,7 +32,13 @@ struct ContentView: View {
         Suggestions(id: 3, albumCover: "https://i.discogs.com/udt90ojzBOy90t6x_oBTWolGjBi0aGVXuTeA_g0hniY/rs:fit/g:sm/q:90/h:500/w:500/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTE3Nzg5/NzctMTY2MTg0ODU3/Mi00NjE0LmpwZWc.jpeg", albumName: "Damn"),
         Suggestions(id: 4, albumCover: "https://i.discogs.com/hywp7Zxb-tOP9ievyyBpeV_5NHIGRhwgnKRzU7HCyyg/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI3ODA4/MzE3LTE2OTA1NjM4/NTUtMTI2OC5qcGVn.jpeg", albumName: "UTOPIA")
     ]
+    @State var field = ""
+    
+    
     var body: some View {
+        
+        
+        
         NavigationStack{
             ZStack{
                 LinearGradient(colors: [Color("Pinklight"), .black],
@@ -40,24 +46,26 @@ struct ContentView: View {
                                endPoint: .center)
                 .ignoresSafeArea()
                 VStack{
-                    AsyncImage(url: URL(string:"https://i.discogs.com/kNELo5tNWsK9mjX9WfYGpaUhaAyr32CYNKBdly5RMcA/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEzNjM5/NjMyLTE2NDc4MjA4/MjUtNDM2MC5qcGVn.jpeg")!) { image in
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                    } placeholder: {
-                        Image(systemName: "photo.fill")
-                    }.frame(width: 200, height: 250)
-                        .padding(.bottom, 10)
-                        .frame(width: 70, alignment: .center)
-                    
-                    Text("IGOR")
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.trailing)
-                    Text("João")
-                        .foregroundColor(.white)
                     ScrollView{
+
+                        AsyncImage(url: URL(string:"https://i.discogs.com/kNELo5tNWsK9mjX9WfYGpaUhaAyr32CYNKBdly5RMcA/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEzNjM5/NjMyLTE2NDc4MjA4/MjUtNDM2MC5qcGVn.jpeg")!) { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                        } placeholder: {
+                            Image(systemName: "photo.fill")
+                        }.frame(width: 200, height: 250)
+                            .padding(.bottom, 10)
+                            .frame(width: 70, alignment: .center)
+                        
+                        Text("IGOR")
+                            .foregroundColor(.white)
+                            .multilineTextAlignment(.trailing)
+                        Text("João")
+                            .foregroundColor(.white)
+                        //ScrollView{
                         VStack(alignment: .leading){
-                            ForEach(songs){
+                            ForEach(searchResults){
                                 song in
                                 NavigationLink(destination: SongView(currentSong: song)){
                                     HStack{
@@ -118,7 +126,19 @@ struct ContentView: View {
                 }
             }
         }
+        .searchable(text: $field)
+        
+        
     }
+
+    var searchResults: [Song] {
+        if field.isEmpty {
+            return songs
+        } else {
+            return songs.filter { $0.name.localizedCaseInsensitiveContains(field) }
+        }
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

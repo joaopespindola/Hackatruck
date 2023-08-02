@@ -11,7 +11,7 @@ struct SongView: View {
     var currentSong: Song
     var body: some View {
         ZStack{
-            LinearGradient(colors: [.pink, .black],
+            LinearGradient(colors: [Color("Pinklight"), .black],
                            startPoint: .top,
                            endPoint: .center)
             .ignoresSafeArea()
@@ -35,7 +35,6 @@ struct SongView: View {
                         .foregroundColor(.white)
                 }
                 .padding()
-                Spacer()
                 HStack{
                     Image(systemName: "shuffle")
                         .foregroundColor(.white)
