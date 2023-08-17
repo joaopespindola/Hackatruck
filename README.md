@@ -17,8 +17,8 @@
         </div>
         <div style="display: inline-block; margin-right: 20px; vertical-align: top;">
                 <h2>Desafio 10</h2>
-                <h2>Nesse desafio, criei a minha própria API usando Node-Red e Postman e fiz a importação da mesma no Swift</h2>
-            <img src="Desafio9/Desafio9/Assets.xcassets/ezgif.com-video-to-gif (1).gif" width="200px" alt="Demo">
+                <h2>Nesse desafio, criei a minha própria API, para gerenciamento de um estacionamento de veículos, usando Node-Red e Postman e fiz a importação da mesma no Swift</h2>
+            <img src="Desafios/Desafios/Assets.xcassets/ezgif.com-crop.gif" width="200px" alt="Demo">
         </div>
     </section>
 </div>
