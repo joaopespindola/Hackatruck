@@ -6,6 +6,11 @@
             <img src="Desafios/Desafios/Assets.xcassets/ezgif.com-video-to-gif (2).gif" width="200px" alt="Demo">
         </div>
         <div style="display: inline-block; vertical-align: top;">
+                <h2>Desafio 7</h2>
+                <h2>Nesse desafio, recriei uma visualização do famigerado Spotify</h2>
+            <img src="Desafios/Desafios/Assets.xcassets/ezgif.com-video-to-gif (5).gif" width="200px" alt="Demo">
+        </div>
+        <div style="display: inline-block; vertical-align: top;">
                 <h2>Desafio 8</h2>
                 <h2>Nesse desafio, aprimorei meus conhecimentos no uso de mapas em Swift</h2>
             <img src="Desafios/Desafios/Assets.xcassets/ezgif.com-video-to-gif (3).gif" width="200px" alt="Demo">
